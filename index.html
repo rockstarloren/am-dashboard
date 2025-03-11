@@ -107,19 +107,40 @@
             <div>ETA Menu</div>
           </a>
           <a
-            href="https://docs.google.com/spreadsheets/d/1WOzzmsZZT0CmOuwWmhIKy4itb-tz5AzAV9AG0Jw6Wso/edit?usp=sharing"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>CRM Database</div>
-          </a>
-          <a
             href="https://docs.google.com/spreadsheets/d/1Y9npaIkzZ5muSQw3_EOaTySPg7AKkvYoKZJkFXfOHQA/edit?usp=sharing"
             target="_blank"
             class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
           >
-            <div>Scheduled For Transition</div>
+            <div>Scheduled for Transition</div>
           </a>
+          <div class="relative group">
+            <!-- Main Button (Trigger) -->
+            <button
+              id="mainButton"
+              class="font-semibold border border-[#292929] py-3 px-4 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out block text-center w-full max-w-xs sm:max-w-sm md:max-w-md"
+            >
+              CRM <span class="text-xs">(Leads)</span>
+            </button>
+
+            <!-- Popup Buttons -->
+            <div
+              id="popupButtons"
+              class="absolute left-1/2 transform -translate-x-1/2 -top-[120%] hidden sm:group-hover:flex flex-col items-center bg-white p-3 rounded-md shadow-lg w-40 sm:w-48 md:w-56 gap-3"
+            >
+              <a
+                href="https://airtable.com/appICBDCYWPqMQycD/tblc3FcoriSaoERPr/viw9QuatI6NroDFO8?blocks=hide"
+                class="bg-[#292929] font-semibold text-white px-4 py-2 rounded-md shadow hover:bg-black transition w-full text-center block"
+                target="_blank"
+                >Main Table</a
+              >
+              <a
+                href="https://airtable.com/appICBDCYWPqMQycD/pagWl1XH5vZ5OqnZw/form"
+                class="bg-[#292929] font-semibold text-white px-4 py-2 rounded-md shadow hover:bg-black transition w-full text-center block"
+                target="_blank"
+                >New Leads Form</a
+              >
+            </div>
+          </div>
         </div>
         <h2 class="font-bold py-3 text-lg">Checkout Pages</h2>
         <div
@@ -342,5 +363,24 @@
         </div>
       </div>
     </div>
+    <script>
+      const mainButton = document.getElementById("mainButton");
+      const popupButtons = document.getElementById("popupButtons");
+
+      mainButton.addEventListener("click", (event) => {
+        event.stopPropagation(); // Prevent unwanted closing
+        popupButtons.classList.toggle("hidden");
+      });
+
+      // Close popup when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !mainButton.contains(event.target) &&
+          !popupButtons.contains(event.target)
+        ) {
+          popupButtons.classList.add("hidden");
+        }
+      });
+    </script>
   </body>
 </html>
