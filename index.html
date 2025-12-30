@@ -1,275 +1,142 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <script
-      src="https://kit.fontawesome.com/30f2ff12d8.js"
-      crossorigin="anonymous"
-    ></script>
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
-
-    <head>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
-        rel="stylesheet"
-      />
-    </head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/30f2ff12d8.js" crossorigin="anonymous"></script>
     <title>AM Dashboard</title>
-  </head>
-  <body class="h-screen flex justify-center font-[Poppins] text-[#292929]">
-    <div class="w-full max-w-7xl mx-auto">
-      <h1 class="font-bold pt-8 text-4xl text-center">
-        Account Management Dashboard
-      </h1>
-      <!--Reources-->
-      <div>
-        <h2 class="font-bold py-3 text-lg">Main Resources</h2>
-        <!-- Resources Buttons-->
-        <div
-          class="grid grid-flow-row sm:grid-flow-col justify-stretch place-content-center text-center gap-2 pb-2"
-        >
-          <a
-            href="https://rockstar-web-design-services.monday.com/workspaces/3884028"
-            target="_blank"
-          >
-            <div
-              class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-            >
-              Account Management Workspace
-            </div>
-          </a>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-black justify-center items-center min-h-screen">
+    <div class="w-full max-w-4xl mx-auto p-4 space-y-6">
+        <header class="text-center space-y-3">
+            <h1 class="text-3xl font-bold">Account Management Dashboard</h1>
+            <p class="text-sm text-gray-500">Your central hub for all account-related tasks and resources.</p>
+        </header>
 
-          <a
-            href="https://docs.google.com/document/d/1smp4yoIdlum5VtqO0W4Wo0WOmKr1i3T4ptq_75-ZhGg/edit?usp=sharing"
-            target="_blank"
-          >
-            <div
-              class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-            >
-              Production Operations Handbook
+        <!-- Main Resources -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3">Main Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a href="https://rockstar-web-design-services.monday.com/workspaces/3884028" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Account Management Workspace</h3>
+                </a>
+                <a href="https://docs.google.com/document/d/1smp4yoIdlum5VtqO0W4Wo0WOmKr1i3T4ptq_75-ZhGg/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Production Operations Handbook</h3>
+                </a>
+                <a href="https://airtable.com/appXTCS8Wcl4Lbvwh/shrV8SLBAd8LDR1Ck" target="_blank" class="flex items-center justify-center p-3 h-24 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Airtable Login</h3>
+                    <i class="fa-solid fa-right-to-bracket ml-2"></i>
+                </a>
             </div>
-          </a>
-          <a
-            href="https://airtable.com/appXTCS8Wcl4Lbvwh/shrV8SLBAd8LDR1Ck"
-            target="_blank"
-          >
-            <div
-              class="font-semibold bg-[#292929] text-white py-3 rounded-md hover:bg-black transition-all duration-300 ease-in-out"
-            >
-              <i class="fa-solid fa-right-to-bracket pr-2"></i> Airtable Login
+        </section>
+
+        <!-- Client Resources -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3">Client Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                <a href="https://rockstar-web-design-services.monday.com/boards/1869349052" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">Database (Clients)</h3>
+                </a>
+                <a href="https://rockstar-web-design-services.monday.com/boards/1497511122" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">Clients On Board</h3>
+                </a>
+                <a href="https.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">Client Reports Board</h3>
+                </a>
             </div>
-          </a>
-        </div>
-        <!-- Resources Buttons-->
-      </div>
-      <div>
-        <div
-          class="grid grid-flow-row sm:grid-flow-col justify-stretch place-content-center text-center gap-2 pb-2"
-        >
-          <a
-            href="https://rockstar-web-design-services.monday.com/boards/1869349052"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>Database<span class="text-xs">(Clients)</span></div>
-          </a>
-          <a
-            href="https://rockstar-web-design-services.monday.com/boards/1497511122"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>Clients On Board</div>
-          </a>
-          <a
-            href="https://rockstar-web-design-services.monday.com/boards/2086538324"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>Client Reports Board</div>
-          </a>
-          <a
-            href="https://rockstar-web-design-services.monday.com/boards/1958614613"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>NPS Board</div>
-          </a>
-          <a
-            href="https://rockstar-web-design-services.monday.com/boards/1886375799"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>Clients Feedback Board</div>
-          </a>
-        </div>
-      </div>
-      <!--Resources-->
-      <!--Reports-->
-      <div>
-        <h2 class="font-bold py-3 text-lg">Forms</h2>
-        <!-- Credits Trackers Buttons-->
-        <div
-          class="grid grid-flow-row sm:grid-flow-col justify-stretch place-content-center text-center gap-2 pb-2"
-        >
-          <a
-            href="https://docs.google.com/document/d/1NyWpuQhB_dKT3D889eIoszzg76VLhPzNFN_ywcVQaR0/edit?usp=sharing"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all durat`ion-300 ease-in-out"
-          >
-            <div>NTE Template</div>
-          </a>
-          <a
-            href="https://forms.monday.com/forms/3ff9fdc5a4083b07a07627390719c8f5?r=euc1"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>Client Feedback Form</div>
-          </a>
-          <a
-            href="https://forms.monday.com/forms/4f325c36afb0db4117ad990259c56aac?r=euc1"
-            target="_blank"
-            class="font-semibold border border-[#292929] py-3 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-          >
-            <div>NPS Form</div>
-          </a>
-        </div>
-        <!-- Credits Trackers Buttons-->
-      </div>
-      <!--Reports-->
-      <!--Copywriting Boards-->
-      <div>
-        <h2 class="font-bold py-3 text-lg">
-          Copywriting Resources
-        </h2>
-        <!-- Copywriting Cards -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-center pb-2">
-          <div>
-            <a
-              href="https://rockstar-web-design-services.monday.com/boards/1832451259"
-              target="_blank"
-              class="block"
-            >
-              <div
-                class="font-semibold border border-[#292929] py-8 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-              >
-                <i class="fa-solid fa-feather fa-2xl mb-4"></i>
-                <p>Team Isabel <span class="text-xs">(Board)</span></p>
-              </div>
-            </a>
-            <a
-              href="https://docs.google.com/document/d/1gkh8K6X4xHfr9YcY-q1oPM7fudVuzb7YaN6faXPru9o/edit?tab=t.0"
-              target="_blank"
-              class="block"
-            >
-              <div
-                class="font-semibold border bg-[#292929] text-white border-[#292929] mt-2 py-2 rounded-md hover:bg-black transition-all duration-300 ease-in-out"
-              >
-                <p>Checklist</p>
-              </div>
-            </a>
-            <div class="flex items-center gap-3 w-full max-w-md mx-auto p-4">
-              <p class="font-semibold text-base whitespace-nowrap">Calendar:</p>
-              <div class="relative w-full">
-                <input
-                  type="text"
-                  value="https://calendly.com/isabelp-rockstarcopywriter/30min"
-                  readonly
-                  onclick="this.select(); document.execCommand('copy'); this.parentElement.nextElementSibling.classList.remove('hidden'); setTimeout(() => this.parentElement.nextElementSibling.classList.add('hidden'), 1000);"
-                  class="w-full p-3 text-center border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 cursor-pointer"
-                />
-              </div>
-              <span
-                class="text-sm text-green-600 font-medium hidden whitespace-nowrap"
-                >Copied!</span
-              >
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a href="https://rockstar-web-design-services.monday.com/boards/1958614613" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">NPS Board</h3>
+                </a>
+                <a href="https://rockstar-web-design-services.monday.com/boards/1886375799" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">Clients Feedback Board</h3>
+                </a>
+                <a href="https://www.canva.com/design/DAGx1V1cbJs/Th0I_F0jro2buvgzUgFSFw/edit?utm_content=DAGx1V1cbJs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                    <h3 class="text-sm font-medium">Client Journey</h3>
+                </a>
             </div>
-          </div>
+        </section>
 
-          <div>
-            <a
-              href="https://rockstar-web-design-services.monday.com/boards/1832471222"
-              target="_blank"
-              class="block"
-            >
-              <div
-                class="font-semibold border border-[#292929] py-8 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out"
-              >
-                <i class="fa-solid fa-feather fa-2xl mb-4"></i>
-                <p>Team Joal <span class="text-xs">(Board)</span></p>
-              </div>
-            </a>
-            <a
-              href="https://docs.google.com/document/d/1Ql9MfYUpwdNDOKkkSNR1TD2d4NvZtWRU/edit?usp=sharing&ouid=104363377089701489513&rtpof=true&sd=true"
-              target="_blank"
-              class="block"
-            >
-              <div
-                class="font-semibold border bg-[#292929] text-white border-[#292929] mt-2 py-2 rounded-md hover:bg-black transition-all duration-300 ease-in-out"
-              >
-                <p>Checklist</p>
-              </div>
-            </a>
-            <div class="flex items-center gap-3 w-full max-w-md mx-auto p-4">
-              <p class="font-semibold text-base whitespace-nowrap">Calendar:</p>
-              <div class="relative w-full">
-                <input
-                  type="text"
-                  value="https://calendly.com/joal-rockstarcopywriter/1hour?fbclid=IwZXh0bgNhZW0CMTAAAR31L2qw2YlI8hAm-ki2Ek1ZByuiXMyw5tl0-Zf68pteJOCvjfpuRi9VKgs_aem_zastC_MwTjhSZesS3vnXdQ"
-                  readonly
-                  onclick="this.select(); document.execCommand('copy'); this.parentElement.nextElementSibling.classList.remove('hidden'); setTimeout(() => this.parentElement.nextElementSibling.classList.add('hidden'), 1000);"
-                  class="w-full p-3 text-center border border-gray-300 rounded-lg outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300 cursor-pointer"
-                />
-              </div>
-              <span
-                class="text-sm text-green-600 font-medium hidden whitespace-nowrap"
-                >Copied!</span
-              >
+        <!-- Forms -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3">Forms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a href="https://docs.google.com/document/d/1NyWpuQhB_dKT3D889eIoszzg76VLhPzNFN_ywcVQaR0/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">NTE Template</h3>
+                </a>
+                <a href="https://forms.monday.com/forms/3ff9fdc5a4083b07a07627390719c8f5?r=euc1" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Client Feedback Form</h3>
+                </a>
+                <a href="https://forms.monday.com/forms/4f325c36afb0db4117ad990259c56aac?r=euc1" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">NPS Form</h3>
+                </a>
             </div>
-          </div>
-        </div>
+        </section>
 
-        <!-- Copywriting Cards -->
-      </div>
-      <!--Copywriting Boards-->
-      <!--Messaging Resources-->
-      <div>
-        <h2 class="font-bold py-3 text-lg">
-          Communication Resources
-        </h2>
+        <!-- Copywriting Resources -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3">Copywriting Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <div class="p-3 bg-white rounded-lg shadow-md">
+                    <h3 class="text-base font-semibold mb-2 text-center">Team Isabel</h3>
+                    <div class="flex gap-3 mb-2">
+                        <a href="https://rockstar-web-design-services.monday.com/boards/1832451259" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
+                            <span>Board</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="https://docs.google.com/document/d/1gkh8K6X4xHfr9YcY-q1oPM7fudVuzb7YaN6faXPru9o/edit?tab=t.0" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
+                            <span>Checklist</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="relative">
+                        <input type="text" value="https://calendly.com/isabelp-rockstarcopywriter/30min" readonly class="w-full p-2 bg-gray-200 border border-gray-300 rounded-lg outline-none text-center" onclick="this.select(); document.execCommand('copy');" />
+                    </div>
+                </div>
+                <div class="p-3 bg-white rounded-lg shadow-md">
+                    <h3 class="text-base font-semibold mb-2 text-center">Team Joal</h3>
+                    <div class="flex gap-3 mb-2">
+                        <a href="https://rockstar-web-design-services.monday.com/boards/1832471222" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
+                            <span>Board</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="https://docs.google.com/document/d/1Ql9MfYUpwdNDOKkkSNR1TD2d4NvZtWRU/edit?usp=sharing&ouid=104363377089701489513&rtpof=true&sd=true" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
+                            <span>Checklist</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="relative">
+                        <input type="text" value="https://calendly.com/joal-rockstarcopywriter/1hour?fbclid=IwZXh0bgNhZW0CMTAAAR31L2qw2YlI8hAm-ki2Ek1ZByuiXMyw5tl0-Zf68pteJOCvjfpuRi9VKgs_aem_zastC_MwTjhSZesS3vnXdQ" readonly class="w-full p-2 bg-gray-200 border border-gray-300 rounded-lg outline-none text-center" onclick="this.select(); document.execCommand('copy');" />
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Messaging Resources Buttons -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 w-full mx-auto">
-          <!-- Left Column (Upload Section) -->
-          <a
-            href="https://drive.google.com/drive/folders/1f9usV0qYjiimD4X0u9zFfs3v4ETpkdYv?usp=sharing"
-            target="_blank"
-            class="md:col-span-1 bg-[#f7a400] text-center rounded-md p-6 flex flex-col items-center justify-center hover:bg-[#f37413] transition-all duration-300 ease-in-out flex flex-col items-center gap-3 cursor-pointer"
-          >
-            <i class="fa-solid fa-cloud-arrow-up text-4xl"></i>
-            <p class="font-bold text-lg">Upload Zoom Calls Here!</p>
-          </a>
+        <!-- Communication Resources -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3">Communication Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <a href="https://drive.google.com/drive/folders/1f9usV0qYjiimD4X0u9zFfs3v4ETpkdYv?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors duration-300 col-span-1 shadow-md">
+                    <h3 class="text-base font-semibold text-center"><i class="fa-solid fa-cloud-arrow-up mr-2"></i>Upload Zoom Calls</h3>
+                </a>
+                <a href="https://docs.google.com/document/d/1GswBqgPP2SPNxIz-WJaGbvoyegfHIZAocx28iEvJ-pA/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Call Scripts</h3>
+                </a>
+                <a href="https.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                    <h3 class="text-base font-semibold text-center">Message Templates</h3>
+                </a>
+            </div>
+        </section>
 
-          <!-- Right Column (Call Scripts & Message Templates) -->
-          <div class="md:col-span-3 grid grid-rows-2 gap-4">
-            <a
-              href="https://docs.google.com/document/d/1GswBqgPP2SPNxIz-WJaGbvoyegfHIZAocx28iEvJ-pA/edit?usp=sharing"
-              target="_blank"
-              class="font-semibold border border-[#292929] py-4 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-outitt text-center"
-            >
-              <div>Call Scripts</div>
-            </a>
-            <a
-              href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing"
-              target="_blank"
-              class="font-semibold border border-[#292929] py-4 rounded-md hover:bg-[#292929] hover:text-white transition-all duration-300 ease-in-out text-center"
-            >
-              <div>Message Templates</div>
-            </a>
-          </div>
-        </div>
-      </div>
     </div>
-  </body>
+</body>
 </html>
