@@ -8,16 +8,78 @@
     <link rel="icon" type="image/png" href="./assets/favicon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/30f2ff12d8.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.33/moment-timezone-with-data.min.js"></script>
     <title>AM Dashboard</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
         }
+        .dark-mode {
+            background-color: #111827;
+            color: #f3f4f6;
+        }
+        .dark-mode .bg-white {
+            background-color: #1f2937;
+        }
+        .dark-mode .text-gray-500, .dark-mode .text-gray-600, .dark-mode .text-gray-800 {
+            color: #9ca3af;
+        }
+        .dark-mode .bg-gray-200, .dark-mode .bg-gray-100 {
+            background-color: #374151;
+        }
+        .dark-mode .hover\:bg-gray-200:hover {
+            background-color: #4b5563;
+        }
+        .dark-mode .hover\:bg-gray-300:hover {
+            background-color: #374151;
+        }
+        .dark-mode .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .dark-mode input, .dark-mode datalist {
+            background-color: #374151;
+            color: #f3f4f6;
+            border-color: #4b5563;
+        }
+        .dark-mode input:-webkit-autofill,
+        .dark-mode input:-webkit-autofill:hover,
+        .dark-mode input:-webkit-autofill:focus,
+        .dark-mode input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0 30px #374151 inset !important;
+            -webkit-text-fill-color: #f3f4f6 !important;
+        }
+        .dark-mode .result-text-light {
+            color: #93c5fd;
+        }
+        #from-timezone-input, #to-timezone-input {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+        .input-error {
+            border-color: #f56565 !important;
+        }
+        .dark-mode #local-time-btn, .dark-mode #switch-tz-btn {
+            background-color: #4b5563;
+            color: #e5e7eb;
+        }
+        .dark-mode #local-time-btn:hover, .dark-mode #switch-tz-btn:hover {
+            background-color: #6b7280;
+        }
+        .dark-mode input[type="date"]::-webkit-calendar-picker-indicator,
+        .dark-mode input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-black justify-center items-center min-h-screen">
-    <div class="w-full max-w-4xl mx-auto p-4 space-y-6">
+<body class="bg-gray-100 text-black justify-center items-center min-h-screen pb-24">
+    <div class="relative w-full max-w-4xl mx-auto p-4 space-y-6">
         <header class="text-center space-y-3">
+            <button id="darkModeToggle" class="absolute top-4 right-4 px-4 py-2 rounded-full bg-gray-200 text-gray-800">
+                <i class="fas fa-moon"></i>
+            </button>
             <h1 class="text-3xl font-bold">Account Management Dashboard</h1>
             <p class="text-sm text-gray-500">Your central hub for all account-related tasks and resources.</p>
         </header>
@@ -49,7 +111,7 @@
                 <a href="https://rockstar-web-design-services.monday.com/boards/1497511122" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
                     <h3 class="text-sm font-medium">Clients On Board</h3>
                 </a>
-                <a href="https.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
+                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
                     <h3 class="text-sm font-medium">Client Reports Board</h3>
                 </a>
             </div>
@@ -131,12 +193,168 @@
                 <a href="https://docs.google.com/document/d/1GswBqgPP2SPNxIz-WJaGbvoyegfHIZAocx28iEvJ-pA/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
                     <h3 class="text-base font-semibold text-center">Call Scripts</h3>
                 </a>
-                <a href="https.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
+                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
                     <h3 class="text-base font-semibold text-center">Message Templates</h3>
                 </a>
             </div>
         </section>
 
+        <!-- Timezone Converter -->
+        <section>
+            <h2 class="text-xl font-semibold my-3">Timezone Converter</h2>
+            <div class="p-4 bg-white rounded-lg shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-start">
+                    <!-- From Timezone -->
+                    <div class="col-span-5 text-center">
+                        <label for="from-timezone-input" class="block text-lg font-semibold mb-2">From</label>
+                        <div class="relative">
+                            <input id="from-timezone-input" list="from-timezone-list" class="w-full p-2 mb-2 bg-white border border-gray-300 rounded-lg" required>
+                            <datalist id="from-timezone-list"></datalist>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="date" id="from-date-input" class="w-full p-2 border bg-white rounded-lg">
+                            <input type="time" id="from-time-input" class="w-full p-2 border bg-white rounded-lg">
+                            <button id="local-time-btn" class="p-2 bg-gray-300 rounded-lg hover:bg-gray-400" title="Set to Local Time">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                            </button>
+                        </div>
+                        <p id="from-formatted-time" class="mt-2 text-xl font-semibold result-text-light"></p>
+                    </div>
+                    
+                    <!-- Switch Button -->
+                    <div class="col-span-1 text-center flex justify-center items-center h-full">
+                         <button id="switch-tz-btn" class="mt-8 p-2 bg-gray-300 rounded-full hover:bg-gray-400" title="Switch Timezones">
+                             <i class="fa-solid fa-repeat"></i>
+                         </button>
+                    </div>
+
+                    <!-- To Timezone -->
+                    <div class="col-span-5 text-center">
+                        <label for="to-timezone-input" class="block text-lg font-semibold mb-2">To</label>
+                        <div class="relative">
+                            <input id="to-timezone-input" list="to-timezone-list" class="w-full p-2 mb-2 bg-white border border-gray-300 rounded-lg" required>
+                            <datalist id="to-timezone-list"></datalist>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <input type="date" id="to-date-input" readonly class="w-full p-2 border bg-gray-100 rounded-lg">
+                            <input type="time" id="to-time-input" readonly class="w-full p-2 border bg-gray-100 rounded-lg">
+                        </div>
+                        <p id="to-formatted-time" class="mt-2 text-xl font-semibold result-text-light"></p>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button id="convert-btn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-lg">Convert</button>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <script>
+        $(document).ready(function() {
+            // Dark Mode Toggle
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                $('body').addClass('dark-mode');
+                $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
+            } else {
+                $('body').removeClass('dark-mode');
+                $('#darkModeToggle i').removeClass('fa-sun').addClass('fa-moon');
+            }
+            $('#darkModeToggle').on('click', function() {
+                $('body').toggleClass('dark-mode');
+                if ($('body').hasClass('dark-mode')) {
+                    localStorage.setItem('darkMode', 'enabled');
+                    $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
+                } else {
+                    localStorage.setItem('darkMode', 'disabled');
+                    $('#darkModeToggle i').removeClass('fa-sun').addClass('fa-moon');
+                }
+            });
+
+            // Timezone Converter
+            const timezones = moment.tz.names();
+            const fromTimezoneInput = $('#from-timezone-input');
+            const toTimezoneInput = $('#to-timezone-input');
+            const fromTimezoneList = $('#from-timezone-list');
+            const toTimezoneList = $('#to-timezone-list');
+            const fromDateInput = $('#from-date-input');
+            const fromTimeInput = $('#from-time-input');
+            const toDateInput = $('#to-date-input');
+            const toTimeInput = $('#to-time-input');
+            const fromFormattedTime = $('#from-formatted-time');
+            const toFormattedTime = $('#to-formatted-time');
+
+            timezones.forEach(function(timezone) {
+                const offset = moment.tz(timezone).format('Z');
+                const optionText = `${timezone} (GMT${offset})`;
+                fromTimezoneList.append($('<option>').attr('value', optionText));
+                toTimezoneList.append($('<option>').attr('value', optionText));
+            });
+
+            const fromDefaultText = `Asia/Manila (GMT${moment.tz('Asia/Manila').format('Z')})`;
+            const toDefaultText = 'EST (GMT-05:00)';
+            fromTimezoneInput.val(fromDefaultText);
+            toTimezoneInput.val(toDefaultText);
+            
+            function getTimezoneFromInput(input) {
+                const val = input.val();
+                if (!val) {
+                    input.addClass('input-error');
+                    return null;
+                };
+                const tz = val.split(' ')[0];
+                const isValid = moment.tz.zone(tz);
+                if(isValid) {
+                    input.removeClass('input-error');
+                    return tz;
+                } else {
+                    input.addClass('input-error');
+                    return null;
+                }
+            }
+
+            function setLocalTime() {
+                const localMoment = moment();
+                fromDateInput.val(localMoment.format('YYYY-MM-DD'));
+                fromTimeInput.val(localMoment.format('HH:mm'));
+            }
+            setLocalTime();
+
+            function runConversion() {
+                try {
+                    const fromTz = getTimezoneFromInput(fromTimezoneInput);
+                    const toTz = getTimezoneFromInput(toTimezoneInput);
+                    const fromDate = fromDateInput.val();
+                    const fromTime = fromTimeInput.val();
+
+                    if (fromTz && toTz && fromDate && fromTime) {
+                        const fromDateTime = `${fromDate}T${fromTime}`;
+                        const fromMoment = moment.tz(fromDateTime, fromTz);
+                        const toMoment = fromMoment.clone().tz(toTz);
+
+                        fromFormattedTime.text(fromMoment.format('MMM D, YYYY h:mm A'));
+                        toDateInput.val(toMoment.format('YYYY-MM-DD'));
+                        toTimeInput.val(toMoment.format('HH:mm'));
+                        toFormattedTime.text(toMoment.format('MMM D, YYYY h:mm A'));
+                    }
+                } catch (e) {
+                    console.error("Could not convert time:", e);
+                }
+            }
+
+            // Event Listeners
+            $('#local-time-btn').on('click', setLocalTime);
+            
+            $('#switch-tz-btn').on('click', function() {
+                const fromTZ = fromTimezoneInput.val();
+                const toTZ = toTimezoneInput.val();
+                fromTimezoneInput.val(toTZ);
+                toTimezoneInput.val(fromTZ);
+            });
+
+            $('#convert-btn').on('click', runConversion);
+
+        });
+    </script>
 </body>
 </html>
