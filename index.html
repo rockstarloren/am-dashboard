@@ -15,6 +15,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
         .dark-mode {
             background-color: #111827;
@@ -35,8 +36,8 @@
         .dark-mode .hover\:bg-gray-300:hover {
             background-color: #374151;
         }
-        .dark-mode .shadow-md {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        .dark-mode .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
         .dark-mode input, .dark-mode datalist {
             background-color: #374151;
@@ -72,30 +73,37 @@
         .dark-mode input[type="time"]::-webkit-calendar-picker-indicator {
             filter: invert(1);
         }
+        .resource-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-black justify-center items-center min-h-screen pb-24">
-    <div class="relative w-full max-w-4xl mx-auto p-4 space-y-6">
+    <div class="relative w-full max-w-4xl mx-auto p-4 sm:p-6 space-y-8">
         <header class="text-center space-y-3">
-            <button id="darkModeToggle" class="absolute top-4 right-4 px-4 py-2 rounded-full bg-gray-200 text-gray-800">
+            <button id="darkModeToggle" class="absolute top-4 right-4 px-4 py-2 rounded-full bg-gray-200 text-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                 <i class="fas fa-moon"></i>
             </button>
-            <h1 class="text-3xl font-bold">Account Management Dashboard</h1>
-            <p class="text-sm text-gray-500">Your central hub for all account-related tasks and resources.</p>
+            <h1 class="text-4xl font-bold">AM Dashboard</h1>
+            <p class="text-md text-gray-500">Your central hub for all account-related tasks and resources.</p>
         </header>
 
         <!-- Main Resources -->
         <section>
-            <h2 class="text-xl font-semibold mb-3">Main Resources</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <a href="https://rockstar-web-design-services.monday.com/workspaces/3884028" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Account Management Workspace</h3>
+            <h2 class="text-2xl font-semibold mb-4">Main Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="https://rockstar-web-design-services.monday.com/workspaces/3884028" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Account Management Workspace</h3>
                 </a>
-                <a href="https://docs.google.com/document/d/1smp4yoIdlum5VtqO0W4Wo0WOmKr1i3T4ptq_75-ZhGg/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Production Operations Handbook</h3>
+                <a href="https://docs.google.com/document/d/1smp4yoIdlum5VtqO0W4Wo0WOmKr1i3T4ptq_75-ZhGg/edit?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Production Operations Handbook</h3>
                 </a>
-                <a href="https://airtable.com/appXTCS8Wcl4Lbvwh/shrV8SLBAd8LDR1Ck" target="_blank" class="flex items-center justify-center p-3 h-24 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Airtable Login</h3>
+                <a href="https://airtable.com/appXTCS8Wcl4Lbvwh/shrV8SLBAd8LDR1Ck" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Airtable Login</h3>
                     <i class="fa-solid fa-right-to-bracket ml-2"></i>
                 </a>
             </div>
@@ -103,77 +111,71 @@
 
         <!-- Client Resources -->
         <section>
-            <h2 class="text-xl font-semibold mb-3">Client Resources</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
-                <a href="https://rockstar-web-design-services.monday.com/boards/1869349052" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">Database (Clients)</h3>
+            <h2 class="text-2xl font-semibold mb-4">Client Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="https://rockstar-web-design-services.monday.com/boards/1869349052" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">Database (Clients)</h3>
                 </a>
-                <a href="https://rockstar-web-design-services.monday.com/boards/1497511122" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">Clients On Board</h3>
+                <a href="https://rockstar-web-design-services.monday.com/boards/1497511122" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">Clients On Board</h3>
                 </a>
-                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">Client Reports Board</h3>
+                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">Client Reports Board</h3>
                 </a>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <a href="https://rockstar-web-design-services.monday.com/boards/1958614613" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">NPS Board</h3>
+                <a href="https://rockstar-web-design-services.monday.com/boards/1958614613" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">NPS Board</h3>
                 </a>
-                <a href="https://rockstar-web-design-services.monday.com/boards/1886375799" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">Clients Feedback Board</h3>
+                <a href="https://rockstar-web-design-services.monday.com/boards/1886375799" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">Clients Feedback Board</h3>
                 </a>
-                <a href="https://www.canva.com/design/DAGx1V1cbJs/Th0I_F0jro2buvgzUgFSFw/edit?utm_content=DAGx1V1cbJs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="flex items-center justify-center p-2 h-16 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 text-center shadow-md">
-                    <h3 class="text-sm font-medium">Client Journey</h3>
+                <a href="https://www.canva.com/design/DAGx1V1cbJs/Th0I_F0jro2buvgzUgFSFw/edit?utm_content=DAGx1V1cbJs&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank" class="resource-card flex items-center justify-center p-3 h-20 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 text-center shadow-lg">
+                    <h3 class="text-base font-medium">Client Journey</h3>
                 </a>
             </div>
         </section>
 
         <!-- Forms -->
         <section>
-            <h2 class="text-xl font-semibold mb-3">Forms</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <a href="https://docs.google.com/document/d/1NyWpuQhB_dKT3D889eIoszzg76VLhPzNFN_ywcVQaR0/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">NTE Template</h3>
+            <h2 class="text-2xl font-semibold mb-4">Forms</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="https://docs.google.com/document/d/1NyWpuQhB_dKT3D889eIoszzg76VLhPzNFN_ywcVQaR0/edit?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">NTE Template</h3>
                 </a>
-                <a href="https://forms.monday.com/forms/3ff9fdc5a4083b07a07627390719c8f5?r=euc1" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Client Feedback Form</h3>
+                <a href="https://forms.monday.com/forms/3ff9fdc5a4083b07a07627390719c8f5?r=euc1" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Client Feedback Form</h3>
                 </a>
-                <a href="https://forms.monday.com/forms/4f325c36afb0db4117ad990259c56aac?r=euc1" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">NPS Form</h3>
+                <a href="https://forms.monday.com/forms/4f325c36afb0db4117ad990259c56aac?r=euc1" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">NPS Form</h3>
                 </a>
             </div>
         </section>
 
         <!-- Copywriting Resources -->
         <section>
-            <h2 class="text-xl font-semibold mb-3">Copywriting Resources</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div class="p-3 bg-white rounded-lg shadow-md">
-                    <h3 class="text-base font-semibold mb-2 text-center">Team Isabel</h3>
-                    <div class="flex gap-3 mb-2">
-                        <a href="https://rockstar-web-design-services.monday.com/boards/1832451259" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
-                            <span>Board</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+            <h2 class="text-2xl font-semibold mb-4">Copywriting Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-lg font-semibold mb-3 text-center">Team Isabel</h3>
+                    <div class="flex gap-3 mb-3">
+                        <a href="https://rockstar-web-design-services.monday.com/boards/1832451259" target="_blank" class="flex-1 text-center p-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300">
+                            <span>Board</span> <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
-                        <a href="https://docs.google.com/document/d/1gkh8K6X4xHfr9YcY-q1oPM7fudVuzb7YaN6faXPru9o/edit?tab=t.0" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
-                            <span>Checklist</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://docs.google.com/document/d/1gkh8K6X4xHfr9YcY-q1oPM7fudVuzb7YaN6faXPru9o/edit?tab=t.0" target="_blank" class="flex-1 text-center p-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300">
+                            <span>Checklist</span> <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                     <div class="relative">
                         <input type="text" value="https://calendly.com/isabelp-rockstarcopywriter/30min" readonly class="w-full p-2 bg-gray-200 border border-gray-300 rounded-lg outline-none text-center" onclick="this.select(); document.execCommand('copy');" />
                     </div>
                 </div>
-                <div class="p-3 bg-white rounded-lg shadow-md">
-                    <h3 class="text-base font-semibold mb-2 text-center">Team Joal</h3>
-                    <div class="flex gap-3 mb-2">
-                        <a href="https://rockstar-web-design-services.monday.com/boards/1832471222" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
-                            <span>Board</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                <div class="p-4 bg-white rounded-xl shadow-lg">
+                    <h3 class="text-lg font-semibold mb-3 text-center">Team Joal</h3>
+                    <div class="flex gap-3 mb-3">
+                        <a href="https://rockstar-web-design-services.monday.com/boards/1832471222" target="_blank" class="flex-1 text-center p-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300">
+                            <span>Board</span> <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
-                        <a href="https://docs.google.com/document/d/1Ql9MfYUpwdNDOKkkSNR1TD2d4NvZtWRU/edit?usp=sharing&ouid=104363377089701489513&rtpof=true&sd=true" target="_blank" class="flex items-center justify-between p-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300 w-full">
-                            <span>Checklist</span>
-                            <i class="fa-solid fa-arrow-right"></i>
+                        <a href="https://docs.google.com/document/d/1Ql9MfYUpwdNDOKkkSNR1TD2d4NvZtWRU/edit?usp=sharing&ouid=104363377089701489513&rtpof=true&sd=true" target="_blank" class="flex-1 text-center p-3 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors duration-300">
+                            <span>Checklist</span> <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                     <div class="relative">
@@ -185,65 +187,62 @@
 
         <!-- Communication Resources -->
         <section>
-            <h2 class="text-xl font-semibold mb-3">Communication Resources</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-                <a href="https://drive.google.com/drive/folders/1f9usV0qYjiimD4X0u9zFfs3v4ETpkdYv?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors duration-300 col-span-1 shadow-md">
-                    <h3 class="text-base font-semibold text-center"><i class="fa-solid fa-cloud-arrow-up mr-2"></i>Upload Zoom Calls</h3>
+            <h2 class="text-2xl font-semibold mb-4">Communication Resources</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="https://drive.google.com/drive/folders/1f9usV0qYjiimD4X0u9zFfs3v4ETpkdYv?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-colors duration-300 col-span-1 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center"><i class="fa-solid fa-cloud-arrow-up mr-2"></i>Upload Zoom Calls</h3>
                 </a>
-                <a href="https://docs.google.com/document/d/1GswBqgPP2SPNxIz-WJaGbvoyegfHIZAocx28iEvJ-pA/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Call Scripts</h3>
+                <a href="https://docs.google.com/document/d/1GswBqgPP2SPNxIz-WJaGbvoyegfHIZAocx28iEvJ-pA/edit?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Call Scripts</h3>
                 </a>
-                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="flex items-center justify-center p-3 h-24 bg-white rounded-lg hover:bg-gray-200 transition-colors duration-300 shadow-md">
-                    <h3 class="text-base font-semibold text-center">Message Templates</h3>
+                <a href="https://docs.google.com/document/d/1H6wgwTgrMuX_UhU8rWkDX7lI4yxTwIKU31Woagfw7gs/edit?usp=sharing" target="_blank" class="resource-card flex items-center justify-center p-4 h-28 bg-white rounded-xl hover:bg-gray-50 transition-colors duration-300 shadow-lg">
+                    <h3 class="text-lg font-semibold text-center">Message Templates</h3>
                 </a>
             </div>
         </section>
 
         <!-- Timezone Converter -->
         <section>
-            <h2 class="text-xl font-semibold my-3">Timezone Converter</h2>
-            <div class="p-4 bg-white rounded-lg shadow-md">
+            <h2 class="text-2xl font-semibold my-4">Timezone Converter</h2>
+            <div class="p-6 bg-white rounded-xl shadow-lg">
                 <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-start">
                     <!-- From Timezone -->
-                    <div class="col-span-5 text-center">
+                    <div class="col-span-11 md:col-span-5 text-center">
                         <label for="from-timezone-input" class="block text-lg font-semibold mb-2">From</label>
                         <div class="relative">
-                            <input id="from-timezone-input" list="from-timezone-list" class="w-full p-2 mb-2 bg-white border border-gray-300 rounded-lg" required>
+                            <input id="from-timezone-input" list="from-timezone-list" class="w-full p-3 mb-2 bg-white border border-gray-300 rounded-lg" required>
                             <datalist id="from-timezone-list"></datalist>
                         </div>
                         <div class="flex items-center gap-2">
-                            <input type="date" id="from-date-input" class="w-full p-2 border bg-white rounded-lg">
-                            <input type="time" id="from-time-input" class="w-full p-2 border bg-white rounded-lg">
-                            <button id="local-time-btn" class="p-2 bg-gray-300 rounded-lg hover:bg-gray-400" title="Set to Local Time">
+                            <input type="date" id="from-date-input" class="w-full p-3 border bg-white rounded-lg">
+                            <input type="time" id="from-time-input" class="w-full p-3 border bg-white rounded-lg">
+                            <button id="local-time-btn" class="p-3 bg-gray-300 rounded-lg hover:bg-gray-400" title="Set to Local Time">
                                 <i class="fa-solid fa-clock-rotate-left"></i>
                             </button>
                         </div>
-                        <p id="from-formatted-time" class="mt-2 text-xl font-semibold result-text-light"></p>
+                        <p id="from-formatted-time" class="mt-2 text-xl font-semibold text-blue-500"></p>
                     </div>
                     
                     <!-- Switch Button -->
-                    <div class="col-span-1 text-center flex justify-center items-center h-full">
-                         <button id="switch-tz-btn" class="mt-8 p-2 bg-gray-300 rounded-full hover:bg-gray-400" title="Switch Timezones">
+                    <div class="col-span-11 md:col-span-1 text-center flex justify-center items-center h-full">
+                         <button id="switch-tz-btn" class="mt-8 p-3 bg-gray-300 rounded-full hover:bg-gray-400" title="Switch Timezones">
                              <i class="fa-solid fa-repeat"></i>
                          </button>
                     </div>
 
                     <!-- To Timezone -->
-                    <div class="col-span-5 text-center">
+                    <div class="col-span-11 md:col-span-5 text-center">
                         <label for="to-timezone-input" class="block text-lg font-semibold mb-2">To</label>
                         <div class="relative">
-                            <input id="to-timezone-input" list="to-timezone-list" class="w-full p-2 mb-2 bg-white border border-gray-300 rounded-lg" required>
+                            <input id="to-timezone-input" list="to-timezone-list" class="w-full p-3 mb-2 bg-white border border-gray-300 rounded-lg" required>
                             <datalist id="to-timezone-list"></datalist>
                         </div>
                         <div class="flex items-center gap-2">
-                            <input type="date" id="to-date-input" readonly class="w-full p-2 border bg-gray-100 rounded-lg">
-                            <input type="time" id="to-time-input" readonly class="w-full p-2 border bg-gray-100 rounded-lg">
+                            <input type="date" id="to-date-input" readonly class="w-full p-3 border bg-gray-100 rounded-lg">
+                            <input type="time" id="to-time-input" readonly class="w-full p-3 border bg-gray-100 rounded-lg">
                         </div>
-                        <p id="to-formatted-time" class="mt-2 text-xl font-semibold result-text-light"></p>
+                        <p id="to-formatted-time" class="mt-2 text-xl font-semibold text-blue-500"></p>
                     </div>
-                </div>
-                <div class="text-center mt-4">
-                    <button id="convert-btn" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 text-lg">Convert</button>
                 </div>
             </div>
         </section>
@@ -253,22 +252,29 @@
     <script>
         $(document).ready(function() {
             // Dark Mode Toggle
-            if (localStorage.getItem('darkMode') === 'enabled') {
-                $('body').addClass('dark-mode');
-                $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
-            } else {
-                $('body').removeClass('dark-mode');
-                $('#darkModeToggle i').removeClass('fa-sun').addClass('fa-moon');
-            }
-            $('#darkModeToggle').on('click', function() {
-                $('body').toggleClass('dark-mode');
-                if ($('body').hasClass('dark-mode')) {
+            const body = $('body');
+            const darkModeToggle = $('#darkModeToggle i');
+
+            function setDarkMode(enabled) {
+                if (enabled) {
+                    body.addClass('dark-mode');
+                    darkModeToggle.removeClass('fa-moon').addClass('fa-sun');
                     localStorage.setItem('darkMode', 'enabled');
-                    $('#darkModeToggle i').removeClass('fa-moon').addClass('fa-sun');
                 } else {
+                    body.removeClass('dark-mode');
+                    darkModeToggle.removeClass('fa-sun').addClass('fa-moon');
                     localStorage.setItem('darkMode', 'disabled');
-                    $('#darkModeToggle i').removeClass('fa-sun').addClass('fa-moon');
                 }
+            }
+
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                setDarkMode(true);
+            } else {
+                setDarkMode(false);
+            }
+
+            $('#darkModeToggle').on('click', function() {
+                setDarkMode(!body.hasClass('dark-mode'));
             });
 
             // Timezone Converter
@@ -315,8 +321,12 @@
 
             function setLocalTime() {
                 const localMoment = moment();
+                const localTimezoneName = moment.tz.guess();
+                const localTimezoneText = `${localTimezoneName} (GMT${localMoment.format('Z')})`;
+                fromTimezoneInput.val(localTimezoneText);
                 fromDateInput.val(localMoment.format('YYYY-MM-DD'));
                 fromTimeInput.val(localMoment.format('HH:mm'));
+                runConversion();
             }
             setLocalTime();
 
@@ -336,9 +346,14 @@
                         toDateInput.val(toMoment.format('YYYY-MM-DD'));
                         toTimeInput.val(toMoment.format('HH:mm'));
                         toFormattedTime.text(toMoment.format('MMM D, YYYY h:mm A'));
+                    } else {
+                        fromFormattedTime.text('');
+                        toFormattedTime.text('');
                     }
                 } catch (e) {
                     console.error("Could not convert time:", e);
+                    fromFormattedTime.text('Invalid Time');
+                    toFormattedTime.text('Invalid Time');
                 }
             }
 
@@ -350,9 +365,14 @@
                 const toTZ = toTimezoneInput.val();
                 fromTimezoneInput.val(toTZ);
                 toTimezoneInput.val(fromTZ);
+                runConversion();
             });
 
-            $('#convert-btn').on('click', runConversion);
+            [fromTimezoneInput, toTimezoneInput, fromDateInput, fromTimeInput].forEach(input => {
+                input.on('input', runConversion);
+            });
+
+            runConversion();
 
         });
     </script>
